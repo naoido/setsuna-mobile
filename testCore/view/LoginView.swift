@@ -35,7 +35,7 @@ struct LoginView: View {
                         .cornerRadius(5.0)
                 }
 
-                NavigationLink(destination: ChatView()) {
+                NavigationLink(destination: RegisterView()) {
                     Text("新規登録")
                 }
             }
@@ -58,9 +58,15 @@ struct LoginView: View {
                     Network.shared.apollo.fetch(query: query) { result in
                         switch result {
                         case .success(let graphQLResult):
-                            print("Success! Result: \(graphQLResult)")
+                            if let name = graphQLResult.data?.get_userID {
+                                print(name) // Luke Skywalker
+                            } else if let errors = graphQLResult.errors {
+                                // GraphQL errors
+                                print(errors)
+                            }
                         case .failure(let error):
-                            print("Failure! Error: \(error)")
+                            // Network or response format errors
+                            print(error)
                         }
                     }
                     print("Token: \(token)")

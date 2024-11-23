@@ -21,7 +21,7 @@
       },
       "downloadTimeout": 60,
       "headers": [],
-      "outputPath": "./graphql/schema.graphqls"
+      "outputPath": "./graphql/schem.graphqls"
   },
   "output" : {
     "testMocks" : {

@@ -12,12 +12,19 @@
 		E17880E52CF22125003766A8 /* ApolloTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E17880E42CF22125003766A8 /* ApolloTestSupport */; };
 		E17880E72CF221AA003766A8 /* apollo-codegen-config.json in Resources */ = {isa = PBXBuildFile; fileRef = E17880E62CF221AA003766A8 /* apollo-codegen-config.json */; };
 		E17880F02CF226EE003766A8 /* login.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E17880ED2CF226EE003766A8 /* login.graphql */; };
-		E17880F12CF226EE003766A8 /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = E17880EE2CF226EE003766A8 /* schema.graphqls */; };
 		E17880F42CF227A5003766A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E17880F32CF227A5003766A8 /* RocketReserverAPI */; };
 		E17880F92CF2284B003766A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E17880F82CF2284B003766A8 /* RocketReserverAPI */; };
 		E17881012CF22E01003766A8 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = E17881002CF22E01003766A8 /* ApolloWebSocket */; };
-		E17881142CF2430D003766A8 /* getUser.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E17881132CF24305003766A8 /* getUser.graphql */; };
-		E17881162CF245D8003766A8 /* register.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E17881152CF245C9003766A8 /* register.graphql */; };
+		E178811A2CF25481003766A8 /* getUser.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E17881182CF25481003766A8 /* getUser.graphql */; };
+		E178811B2CF25481003766A8 /* register.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E17881192CF25481003766A8 /* register.graphql */; };
+		E17881232CF25739003766A8 /* schem.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = E17881222CF25739003766A8 /* schem.graphqls */; };
+		E17881252CF25AD9003766A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E17881242CF25AD9003766A8 /* RocketReserverAPI */; };
+		E17881282CF25B31003766A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E17881272CF25B31003766A8 /* RocketReserverAPI */; };
+		E178812C2CF264D5003766A8 /* matching.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E178812B2CF264C4003766A8 /* matching.graphql */; };
+		E178812E2CF26609003766A8 /* gameResult.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E178812D2CF265FA003766A8 /* gameResult.graphql */; };
+		E17881312CF26661003766A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E17881302CF26661003766A8 /* RocketReserverAPI */; };
+		E17881382CF27363003766A8 /* postReady.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E17881372CF27359003766A8 /* postReady.graphql */; };
+		E178813B2CF2737F003766A8 /* getReady.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E178813A2CF27374003766A8 /* getReady.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +50,13 @@
 		E13521212CEB638400CB2CEE /* testCoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testCoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17880E62CF221AA003766A8 /* apollo-codegen-config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "apollo-codegen-config.json"; sourceTree = "<group>"; };
 		E17880ED2CF226EE003766A8 /* login.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = login.graphql; sourceTree = "<group>"; };
-		E17880EE2CF226EE003766A8 /* schema.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
-		E17881132CF24305003766A8 /* getUser.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = getUser.graphql; sourceTree = "<group>"; };
-		E17881152CF245C9003766A8 /* register.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = register.graphql; sourceTree = "<group>"; };
+		E17881182CF25481003766A8 /* getUser.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = getUser.graphql; sourceTree = "<group>"; };
+		E17881192CF25481003766A8 /* register.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = register.graphql; sourceTree = "<group>"; };
+		E17881222CF25739003766A8 /* schem.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = schem.graphqls; sourceTree = "<group>"; };
+		E178812B2CF264C4003766A8 /* matching.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = matching.graphql; sourceTree = "<group>"; };
+		E178812D2CF265FA003766A8 /* gameResult.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = gameResult.graphql; sourceTree = "<group>"; };
+		E17881372CF27359003766A8 /* postReady.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = postReady.graphql; sourceTree = "<group>"; };
+		E178813A2CF27374003766A8 /* getReady.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = getReady.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -72,8 +83,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E17880F92CF2284B003766A8 /* RocketReserverAPI in Frameworks */,
+				E17881282CF25B31003766A8 /* RocketReserverAPI in Frameworks */,
 				E17881012CF22E01003766A8 /* ApolloWebSocket in Frameworks */,
+				E17881312CF26661003766A8 /* RocketReserverAPI in Frameworks */,
 				E17880E52CF22125003766A8 /* ApolloTestSupport in Frameworks */,
+				E17881252CF25AD9003766A8 /* RocketReserverAPI in Frameworks */,
 				E17880F42CF227A5003766A8 /* RocketReserverAPI in Frameworks */,
 				E17880D62CF2129B003766A8 /* KeychainSwift in Frameworks */,
 				E17880E32CF22125003766A8 /* Apollo in Frameworks */,
@@ -122,10 +136,14 @@
 		E17880EF2CF226EE003766A8 /* graphql */ = {
 			isa = PBXGroup;
 			children = (
-				E17881152CF245C9003766A8 /* register.graphql */,
-				E17881132CF24305003766A8 /* getUser.graphql */,
+				E178813A2CF27374003766A8 /* getReady.graphql */,
+				E17881372CF27359003766A8 /* postReady.graphql */,
+				E178812D2CF265FA003766A8 /* gameResult.graphql */,
+				E178812B2CF264C4003766A8 /* matching.graphql */,
 				E17880ED2CF226EE003766A8 /* login.graphql */,
-				E17880EE2CF226EE003766A8 /* schema.graphqls */,
+				E17881182CF25481003766A8 /* getUser.graphql */,
+				E17881192CF25481003766A8 /* register.graphql */,
+				E17881222CF25739003766A8 /* schem.graphqls */,
 			);
 			path = graphql;
 			sourceTree = "<group>";
@@ -156,6 +174,9 @@
 				E17880F32CF227A5003766A8 /* RocketReserverAPI */,
 				E17880F82CF2284B003766A8 /* RocketReserverAPI */,
 				E17881002CF22E01003766A8 /* ApolloWebSocket */,
+				E17881242CF25AD9003766A8 /* RocketReserverAPI */,
+				E17881272CF25B31003766A8 /* RocketReserverAPI */,
+				E17881302CF26661003766A8 /* RocketReserverAPI */,
 			);
 			productName = testCore;
 			productReference = E13521072CEB638300CB2CEE /* testCore.app */;
@@ -243,7 +264,7 @@
 			packageReferences = (
 				E17880D42CF2129B003766A8 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				E17880E12CF22125003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */,
-				E17880F72CF2284B003766A8 /* XCLocalSwiftPackageReference "RocketReserverAPI" */,
+				E178812F2CF26661003766A8 /* XCLocalSwiftPackageReference "RocketReserverAPI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E13521082CEB638300CB2CEE /* Products */;
@@ -262,10 +283,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E178812C2CF264D5003766A8 /* matching.graphql in Resources */,
 				E17880F02CF226EE003766A8 /* login.graphql in Resources */,
-				E17881162CF245D8003766A8 /* register.graphql in Resources */,
-				E17881142CF2430D003766A8 /* getUser.graphql in Resources */,
-				E17880F12CF226EE003766A8 /* schema.graphqls in Resources */,
+				E178813B2CF2737F003766A8 /* getReady.graphql in Resources */,
+				E17881232CF25739003766A8 /* schem.graphqls in Resources */,
+				E17881382CF27363003766A8 /* postReady.graphql in Resources */,
+				E178812E2CF26609003766A8 /* gameResult.graphql in Resources */,
+				E178811A2CF25481003766A8 /* getUser.graphql in Resources */,
+				E178811B2CF25481003766A8 /* register.graphql in Resources */,
 				E17880E72CF221AA003766A8 /* apollo-codegen-config.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,7 +636,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		E17880F72CF2284B003766A8 /* XCLocalSwiftPackageReference "RocketReserverAPI" */ = {
+		E178812F2CF26661003766A8 /* XCLocalSwiftPackageReference "RocketReserverAPI" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = RocketReserverAPI;
 		};
@@ -664,6 +689,18 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E17880E12CF22125003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloWebSocket;
+		};
+		E17881242CF25AD9003766A8 /* RocketReserverAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RocketReserverAPI;
+		};
+		E17881272CF25B31003766A8 /* RocketReserverAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RocketReserverAPI;
+		};
+		E17881302CF26661003766A8 /* RocketReserverAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RocketReserverAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

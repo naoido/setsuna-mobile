@@ -1,0 +1,7 @@
+mutation Post_matching($isLeave: Boolean!) {
+  post_matching(is_leave: $isLeave) {
+    user_count
+    room_id
+    is_matched
+  }
+}

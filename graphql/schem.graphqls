@@ -54,6 +54,12 @@ type RoomID {
   room_id: String!
 }
 
+type MatchStatus {
+  user_count: Int
+  is_matched: Boolean
+  room_id: String
+}
+
 input GetResult_input {
   room_id: String!
   score: Int!
@@ -88,8 +94,10 @@ type Mutation {
   post_register(email: String!, name: String!, password: String!): Response
   post_ready: ReadyResponse
   post_room: RoomID
-  post_shake(power: Int!): ShakeResponse
+  post_join(room_id: String!): ReadyResponse
+  post_shake(room_id: String!, power: Int!): ShakeResponse
   scheduleOperation(name: String!): String!
+  post_matching(is_leave: Boolean!): MatchStatus
 }
 
 type Subscription {

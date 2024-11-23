@@ -5,7 +5,7 @@ struct HomeView: View {
         Text("user_name")
         
         Button("Logout") {
-            Text("logout")
+            
         }
     }
 }

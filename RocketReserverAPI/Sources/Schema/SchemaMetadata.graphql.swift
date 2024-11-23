@@ -20,6 +20,7 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
 
   public static func objectType(forTypename typename: String) -> ApolloAPI.Object? {
     switch typename {
+    case "MatchStatus": return RocketReserverAPI.Objects.MatchStatus
     case "Mutation": return RocketReserverAPI.Objects.Mutation
     case "Query": return RocketReserverAPI.Objects.Query
     case "Response": return RocketReserverAPI.Objects.Response
