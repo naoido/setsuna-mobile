@@ -12,11 +12,11 @@ public class PostRegistMutation: GraphQLMutation {
 
   public init() {}
 
-  public struct Data: TestCore.SelectionSet {
+  public struct Data: SelectionSet {
     public let __data: DataDict
     public init(_dataDict: DataDict) { __data = _dataDict }
 
-    public static var __parentType: any ApolloAPI.ParentType { TestCore.Objects.Mutation }
+    public static var __parentType: any ApolloAPI.ParentType { Objects.Mutation }
     public static var __selections: [ApolloAPI.Selection] { [
       .field("post_register", Post_register?.self, arguments: ["input": [
         "email": "",
@@ -30,11 +30,11 @@ public class PostRegistMutation: GraphQLMutation {
     /// Post_register
     ///
     /// Parent Type: `Response`
-    public struct Post_register: TestCore.SelectionSet {
+    public struct Post_register: SelectionSet {
       public let __data: DataDict
       public init(_dataDict: DataDict) { __data = _dataDict }
 
-      public static var __parentType: any ApolloAPI.ParentType { TestCore.Objects.Response }
+      public static var __parentType: any ApolloAPI.ParentType { Objects.Response }
       public static var __selections: [ApolloAPI.Selection] { [
         .field("__typename", String.self),
         .field("token", String.self),
