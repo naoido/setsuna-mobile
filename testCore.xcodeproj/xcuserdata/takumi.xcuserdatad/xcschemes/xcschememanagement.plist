@@ -7,17 +7,35 @@
 		<key>SQLite (Playground) 1.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>4</integer>
 		</dict>
 		<key>SQLite (Playground).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>testCore.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>E13521062CEB638300CB2CEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E13521162CEB638400CB2CEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E13521202CEB638400CB2CEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

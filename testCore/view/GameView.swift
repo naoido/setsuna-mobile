@@ -10,16 +10,19 @@ struct GameView: View {
     var body: some View {
         VStack {
             if !isMatching {
-                Button("Ready") {
-                    isReady = true
-                    // ランダムな待機時間を設定
-                    let delay = Double.random(in: 3...5)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                        motionModel.startAccelerometer()
-                        timeModel.startTiming()
-                        isMatching = true
+                if isReady == false {
+                    Button("Ready") {
+                        isReady = true
+                        // ランダムな待機時間を設定
+                        let delay = Double.random(in: 3...5)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                            motionModel.startAccelerometer()
+                            timeModel.startTiming()
+                            isMatching = true
+                        }
                     }
                 }
+
                 if isReady == true {
                     Text("よ〜い！")
                 }
