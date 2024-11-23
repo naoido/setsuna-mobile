@@ -3,7 +3,6 @@ import SwiftUI
 struct ShakeView: View {
     @State var isMatting: Bool = false
     @StateObject private var motionModel = MotionModel()
-    
     var body: some View {
         VStack {
             if !isMatting {

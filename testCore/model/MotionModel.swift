@@ -31,7 +31,7 @@ class MotionModel: ObservableObject {
 //                matching 3
             } else {
                 self?.motionMessage = "静止"
-//                プールから除外
+                
             }
         }
     }

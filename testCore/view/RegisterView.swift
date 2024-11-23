@@ -1,4 +1,6 @@
 import SwiftUI
+import Foundation
+import Apollo
 
 struct RegisterView: View {
     @State var username: String = ""
@@ -64,65 +66,76 @@ struct RegisterView: View {
     }
 
     func registerUser() {
-        guard !username.isEmpty, !email.isEmpty, !password.isEmpty else {
-            errorMessage = "全てのフィールドを入力してください"
-            return
-        }
-        
-        guard password == confirmPassword else {
-            errorMessage = "パスワードが一致しません"
-            return
-        }
-
-        let query = """
-
-        """
-
-        let url = URL(string: "うrl")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        let body: [String: Any] = [
-            "query": query,
-            "variables": [
-                "username": username,
-                "email": email,
-                "password": password
-            ]
-        ]
-        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
-
-
-        isLoading = true
-        errorMessage = nil
-
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            DispatchQueue.main.async {
-                isLoading = false
-
-                if let error = error {
-                    errorMessage = "エラーが発生しました: \(error.localizedDescription)"
-                    return
-                }
-
-                guard let data = data else {
-                    errorMessage = "無効な応答"
-                    return
-                }
-
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                       let errors = json["errors"] as? [[String: Any]] {
-                        errorMessage = errors.first?["message"] as? String ?? "エラーが発生しました"
-                    } else {
-                        errorMessage = nil
-                    }
-                } catch {
-                    errorMessage = "データ処理エラー: \(error.localizedDescription)"
-                }
-            }
-        }.resume()
+//        guard !username.isEmpty, !email.isEmpty, !password.isEmpty else {
+//            errorMessage = "全てのフィールドを入力してください"
+//            return
+//        }
+//        
+//        guard password == confirmPassword else {
+//            errorMessage = "パスワードが一致しません"
+//            return
+//        }
+//        
+//        apolloClient.fetch(query: PostRegistMutation()) { result in
+//          guard let data = try? result.get().data else { return }
+//          print(data) // Luke Skywalker
+//        }
+//
+//        let query = """
+//        {
+//          "data": {
+//            "post_register": {
+//              "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjY0MDkyMjExMjAwLCJzdWIiOiJFNDE4MkRFQy1GQTU5LTQ0MUItOEVCMi1EMUMwRDZCOThEODMifQ.J6PulwLNdr3lWgoGfPpJof7A4BAX75X6hvb9BnpUP7E"
+//            }
+//          }
+//        }
+//        """
+//
+//        let url = URL(string: "http://52.197.88.129:4000/graphql")!
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//
+//        let body: [String: Any] = [
+//            "query": query,
+//            "variables": [
+//                "username": username,
+//                "email": email,
+//                "password": password
+//            ]
+//        ]
+//        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+//
+//
+//        isLoading = true
+//        errorMessage = nil
+//
+//
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            DispatchQueue.main.async {
+//                isLoading = false
+//
+//                if let error = error {
+//                    errorMessage = "エラーが発生しました: \(error.localizedDescription)"
+//                    return
+//                }
+//
+//                guard let data = data else {
+//                    errorMessage = "無効な応答"
+//                    return
+//                }
+//
+//                do {
+//                    if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+//                       let errors = json["errors"] as? [[String: Any]] {
+//                        errorMessage = errors.first?["message"] as? String ?? "エラーが発生しました"
+//                    } else {
+//                        errorMessage = nil
+//                    }
+//                } catch {
+//                    errorMessage = "データ処理エラー: \(error.localizedDescription)"
+//                }
+//            }
+//        }.resume()
     }
 }

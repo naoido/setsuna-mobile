@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E1787FCE2CF1BD69003766A8 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = E1787FCD2CF1BD69003766A8 /* Apollo */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		E13521182CEB638400CB2CEE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1787FCE2CF1BD69003766A8 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = testCore;
 			packageProductDependencies = (
+				E1787FCD2CF1BD69003766A8 /* Apollo */,
 			);
 			productName = testCore;
 			productReference = E13521072CEB638300CB2CEE /* testCore.app */;
@@ -196,6 +202,9 @@
 			);
 			mainGroup = E13520FE2CEB638300CB2CEE;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E1787FCC2CF1BD69003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E13521082CEB638300CB2CEE /* Products */;
 			projectDirPath = "";
@@ -555,6 +564,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E1787FCC2CF1BD69003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.15.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1787FCD2CF1BD69003766A8 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1787FCC2CF1BD69003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E13520FF2CEB638300CB2CEE /* Project object */;
 }

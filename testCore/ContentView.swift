@@ -5,7 +5,7 @@ struct ContentView: View {
 
     var body: some View {
         Group {
-            if authViewModel.isLogin {
+            if !authViewModel.isLogin {
                 MainView()
                     .environmentObject(authViewModel)
             } else {

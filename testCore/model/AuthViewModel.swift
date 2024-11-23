@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct User: Codable {
-    let username: String
+    let email: String
     let password: String
 }
 
@@ -14,13 +14,13 @@ class AuthViewModel: ObservableObject {
     @Published var isLogin = false
     @Published var jwtToken: String? = nil
 
-    func login(username: String, password: String) {
+    func login(email: String, password: String) {
         let url = URL(string: "url")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        let user = User(username: username, password: password)
+        let user = User(email: email, password: password)
         guard let httpBody = try? JSONEncoder().encode(user) else { return }
 
         request.httpBody = httpBody

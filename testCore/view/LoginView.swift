@@ -3,13 +3,13 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
-    @State private var username = ""
+    @State private var email = ""
     @State private var password = ""
 
     var body: some View {
         NavigationView {
             VStack {
-                TextField("Username", text: $username)
+                TextField("email", text: $email)
                     .padding()
                     .background(Color(.systemGray6))
                     .cornerRadius(5.0)
@@ -22,7 +22,7 @@ struct LoginView: View {
                     .padding(.bottom, 20)
 
                 Button(action: {
-                    authViewModel.login(username: username, password: password)
+                    authViewModel.login(email: email, password: password)
                 }) {
                     Text("Login")
                         .frame(maxWidth: .infinity)
@@ -34,11 +34,6 @@ struct LoginView: View {
 
                 NavigationLink(destination: RegisterView()) {
                     Text("新規")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(5.0)
                 }
             }
             .padding()
