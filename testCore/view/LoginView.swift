@@ -1,10 +1,13 @@
-
+import Apollo
 import SwiftUI
+import RocketReserverAPI
+import KeychainSwift
 
 struct LoginView: View {
-    @EnvironmentObject var authViewModel: AuthViewModel
+    static let loginKeychainKey = "login"
     @State private var email = ""
     @State private var password = ""
+    @State private var isLoggedIn = false
 
     var body: some View {
         NavigationView {
@@ -22,7 +25,7 @@ struct LoginView: View {
                     .padding(.bottom, 20)
 
                 Button(action: {
-                    authViewModel.login(email: email, password: password)
+                    loginUser()
                 }) {
                     Text("Login")
                         .frame(maxWidth: .infinity)
@@ -32,11 +35,47 @@ struct LoginView: View {
                         .cornerRadius(5.0)
                 }
 
-                NavigationLink(destination: RegisterView()) {
-                    Text("新規")
+                NavigationLink(destination: ChatView()) {
+                    Text("新規登録")
                 }
             }
             .padding()
+            .fullScreenCover(isPresented: $isLoggedIn) {
+                MainView()
+            }
+        }
+    }
+
+    func loginUser() {
+        let mutation = Post_loginMutation(email: email, password: password)
+        let query = Get_userIDQuery()
+        Network.shared.apollo.perform(mutation: mutation) { result in
+            switch result {
+            case .success(let graphQLResult):
+                if let token = graphQLResult.data?.post_login?.token {
+                    let keychain = KeychainSwift()
+                    keychain.set(token, forKey: LoginView.loginKeychainKey)
+                    Network.shared.apollo.fetch(query: query) { result in
+                        switch result {
+                        case .success(let graphQLResult):
+                            print("Success! Result: \(graphQLResult)")
+                        case .failure(let error):
+                            print("Failure! Error: \(error)")
+                        }
+                    }
+                    print("Token: \(token)")
+                    print("---------------------------------------")
+                    print(keychain.get(LoginView.loginKeychainKey) ?? "No token")
+                    
+                    DispatchQueue.main.async {
+                        isLoggedIn = true
+                    }
+                } else if let errors = graphQLResult.errors {
+                    print("GraphQL errors: \(errors)")
+                }
+            case .failure(let error):
+                print("Network error: \(error)")
+            }
         }
     }
 }

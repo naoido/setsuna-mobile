@@ -1,0 +1,6 @@
+mutation Post_login($email: String!, $password: String!) {
+  post_login(email: $email, password: $password) {
+    token
+  }
+}
+

@@ -1,5 +1,0 @@
-mutation PostRegist{
-  post_register(input: {email: "", name: "", password: ""}) {
-    token
-  }
-}

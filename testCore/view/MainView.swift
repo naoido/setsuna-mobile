@@ -1,4 +1,5 @@
 import SwiftUI
+import KeychainSwift
 struct MainView: View {
     @State var selected = 1
     
@@ -22,5 +23,9 @@ struct MainView: View {
                 .tag(3)
         }
         .tabViewStyle(.page)
+    }
+    private func isLoggedIn() -> Bool {
+        let keychain = KeychainSwift()
+        return keychain.get(LoginView.loginKeychainKey) != nil
     }
 }

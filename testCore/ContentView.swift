@@ -1,17 +1,18 @@
 import SwiftUI
-
+import KeychainSwift
 struct ContentView: View {
-    @StateObject private var authViewModel = AuthViewModel()
 
     var body: some View {
         Group {
-            if !authViewModel.isLogin {
-                MainView()
-                    .environmentObject(authViewModel)
-            } else {
+            if isLoggedIn() {
                 LoginView()
-                    .environmentObject(authViewModel)
+            } else {
+                MainView()
             }
         }
+    }
+    private func isLoggedIn() -> Bool {
+        let keychain = KeychainSwift()
+        return keychain.get(LoginView.loginKeychainKey) != nil
     }
 }

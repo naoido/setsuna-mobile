@@ -4,24 +4,26 @@
 import ApolloAPI
 
 public protocol SelectionSet: ApolloAPI.SelectionSet & ApolloAPI.RootSelectionSet
-where Schema == SchemaMetadata {}
+where Schema == RocketReserverAPI.SchemaMetadata {}
 
 public protocol InlineFragment: ApolloAPI.SelectionSet & ApolloAPI.InlineFragment
-where Schema == SchemaMetadata {}
+where Schema == RocketReserverAPI.SchemaMetadata {}
 
 public protocol MutableSelectionSet: ApolloAPI.MutableRootSelectionSet
-where Schema == SchemaMetadata {}
+where Schema == RocketReserverAPI.SchemaMetadata {}
 
 public protocol MutableInlineFragment: ApolloAPI.MutableSelectionSet & ApolloAPI.InlineFragment
-where Schema == SchemaMetadata {}
+where Schema == RocketReserverAPI.SchemaMetadata {}
 
 public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
   public static let configuration: any ApolloAPI.SchemaConfiguration.Type = SchemaConfiguration.self
 
   public static func objectType(forTypename typename: String) -> ApolloAPI.Object? {
     switch typename {
-    case "Mutation": return Objects.Mutation
-    case "Response": return Objects.Response
+    case "Mutation": return RocketReserverAPI.Objects.Mutation
+    case "Query": return RocketReserverAPI.Objects.Query
+    case "Response": return RocketReserverAPI.Objects.Response
+    case "UserID": return RocketReserverAPI.Objects.UserID
     default: return nil
     }
   }

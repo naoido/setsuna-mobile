@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E1787FCE2CF1BD69003766A8 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = E1787FCD2CF1BD69003766A8 /* Apollo */; };
+		E17880D62CF2129B003766A8 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E17880D52CF2129B003766A8 /* KeychainSwift */; };
+		E17880E32CF22125003766A8 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = E17880E22CF22125003766A8 /* Apollo */; };
+		E17880E52CF22125003766A8 /* ApolloTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E17880E42CF22125003766A8 /* ApolloTestSupport */; };
+		E17880E72CF221AA003766A8 /* apollo-codegen-config.json in Resources */ = {isa = PBXBuildFile; fileRef = E17880E62CF221AA003766A8 /* apollo-codegen-config.json */; };
+		E17880F02CF226EE003766A8 /* login.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E17880ED2CF226EE003766A8 /* login.graphql */; };
+		E17880F12CF226EE003766A8 /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = E17880EE2CF226EE003766A8 /* schema.graphqls */; };
+		E17880F42CF227A5003766A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E17880F32CF227A5003766A8 /* RocketReserverAPI */; };
+		E17880F92CF2284B003766A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E17880F82CF2284B003766A8 /* RocketReserverAPI */; };
+		E17881012CF22E01003766A8 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = E17881002CF22E01003766A8 /* ApolloWebSocket */; };
+		E17881142CF2430D003766A8 /* getUser.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E17881132CF24305003766A8 /* getUser.graphql */; };
+		E17881162CF245D8003766A8 /* register.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E17881152CF245C9003766A8 /* register.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +41,11 @@
 		E13521072CEB638300CB2CEE /* testCore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testCore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13521172CEB638400CB2CEE /* testCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13521212CEB638400CB2CEE /* testCoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testCoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E17880E62CF221AA003766A8 /* apollo-codegen-config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "apollo-codegen-config.json"; sourceTree = "<group>"; };
+		E17880ED2CF226EE003766A8 /* login.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = login.graphql; sourceTree = "<group>"; };
+		E17880EE2CF226EE003766A8 /* schema.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
+		E17881132CF24305003766A8 /* getUser.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = getUser.graphql; sourceTree = "<group>"; };
+		E17881152CF245C9003766A8 /* register.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = register.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -56,7 +71,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1787FCE2CF1BD69003766A8 /* Apollo in Frameworks */,
+				E17880F92CF2284B003766A8 /* RocketReserverAPI in Frameworks */,
+				E17881012CF22E01003766A8 /* ApolloWebSocket in Frameworks */,
+				E17880E52CF22125003766A8 /* ApolloTestSupport in Frameworks */,
+				E17880F42CF227A5003766A8 /* RocketReserverAPI in Frameworks */,
+				E17880D62CF2129B003766A8 /* KeychainSwift in Frameworks */,
+				E17880E32CF22125003766A8 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +104,8 @@
 				E135211A2CEB638400CB2CEE /* testCoreTests */,
 				E13521242CEB638400CB2CEE /* testCoreUITests */,
 				E13521082CEB638300CB2CEE /* Products */,
+				E17880E62CF221AA003766A8 /* apollo-codegen-config.json */,
+				E17880EF2CF226EE003766A8 /* graphql */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +117,17 @@
 				E13521212CEB638400CB2CEE /* testCoreUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E17880EF2CF226EE003766A8 /* graphql */ = {
+			isa = PBXGroup;
+			children = (
+				E17881152CF245C9003766A8 /* register.graphql */,
+				E17881132CF24305003766A8 /* getUser.graphql */,
+				E17880ED2CF226EE003766A8 /* login.graphql */,
+				E17880EE2CF226EE003766A8 /* schema.graphqls */,
+			);
+			path = graphql;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,7 +150,12 @@
 			);
 			name = testCore;
 			packageProductDependencies = (
-				E1787FCD2CF1BD69003766A8 /* Apollo */,
+				E17880D52CF2129B003766A8 /* KeychainSwift */,
+				E17880E22CF22125003766A8 /* Apollo */,
+				E17880E42CF22125003766A8 /* ApolloTestSupport */,
+				E17880F32CF227A5003766A8 /* RocketReserverAPI */,
+				E17880F82CF2284B003766A8 /* RocketReserverAPI */,
+				E17881002CF22E01003766A8 /* ApolloWebSocket */,
 			);
 			productName = testCore;
 			productReference = E13521072CEB638300CB2CEE /* testCore.app */;
@@ -203,7 +241,9 @@
 			mainGroup = E13520FE2CEB638300CB2CEE;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				E1787FCC2CF1BD69003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				E17880D42CF2129B003766A8 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				E17880E12CF22125003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				E17880F72CF2284B003766A8 /* XCLocalSwiftPackageReference "RocketReserverAPI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E13521082CEB638300CB2CEE /* Products */;
@@ -222,6 +262,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E17880F02CF226EE003766A8 /* login.graphql in Resources */,
+				E17881162CF245D8003766A8 /* register.graphql in Resources */,
+				E17881142CF2430D003766A8 /* getUser.graphql in Resources */,
+				E17880F12CF226EE003766A8 /* schema.graphqls in Resources */,
+				E17880E72CF221AA003766A8 /* apollo-codegen-config.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,22 +610,60 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		E17880F72CF2284B003766A8 /* XCLocalSwiftPackageReference "RocketReserverAPI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = RocketReserverAPI;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
-		E1787FCC2CF1BD69003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+		E17880D42CF2129B003766A8 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
 			requirement = {
 				kind = upToNextMajorVersion;
+				minimumVersion = 24.0.0;
+			};
+		};
+		E17880E12CF22125003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios";
+			requirement = {
+				kind = upToNextMinorVersion;
 				minimumVersion = 1.15.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E1787FCD2CF1BD69003766A8 /* Apollo */ = {
+		E17880D52CF2129B003766A8 /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E1787FCC2CF1BD69003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			package = E17880D42CF2129B003766A8 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+		E17880E22CF22125003766A8 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E17880E12CF22125003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
+		};
+		E17880E42CF22125003766A8 /* ApolloTestSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E17880E12CF22125003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloTestSupport;
+		};
+		E17880F32CF227A5003766A8 /* RocketReserverAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RocketReserverAPI;
+		};
+		E17880F82CF2284B003766A8 /* RocketReserverAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RocketReserverAPI;
+		};
+		E17881002CF22E01003766A8 /* ApolloWebSocket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E17880E12CF22125003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloWebSocket;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

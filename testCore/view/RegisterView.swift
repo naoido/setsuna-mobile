@@ -1,9 +1,7 @@
 import SwiftUI
 import Foundation
 import Apollo
-
-let apolloClient = ApolloClient(url: URL(string: "http://localhost:4000/graphql")!)
-
+import RocketReserverAPI
 struct RegisterView: View {
     @State var username: String = ""
     @State var email: String = ""
@@ -11,7 +9,7 @@ struct RegisterView: View {
     @State var confirmPassword: String = ""
     @State var isLoading = false
     @State var errorMessage: String? = nil
-
+    
     var body: some View {
         VStack {
             TextField("Username", text: $username)
@@ -25,7 +23,7 @@ struct RegisterView: View {
                 .background(Color(.systemGray6))
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
-
+            
             SecureField("Password", text: $password)
                 .padding()
                 .background(Color(.systemGray6))
@@ -37,13 +35,13 @@ struct RegisterView: View {
                 .background(Color(.systemGray6))
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
-
+            
             if let errorMessage = errorMessage {
                 Text(errorMessage)
                     .foregroundColor(.red)
                     .padding(.bottom, 20)
             }
-
+            
             Button(action: {
                 registerUser()
             }) {
@@ -66,78 +64,31 @@ struct RegisterView: View {
         }
         .padding()
     }
-
+    
     func registerUser() {
-//        guard !username.isEmpty, !email.isEmpty, !password.isEmpty else {
-//            errorMessage = "全てのフィールドを入力してください"
-//            return
-//        }
-//        
-//        guard password == confirmPassword else {
-//            errorMessage = "パスワードが一致しません"
-//            return
-//        }
-//        
-//        apolloClient.fetch(query: PostRegistMutation()) { result in
-//          guard let data = try? result.get().data else { return }
-//          print(data) // Luke Skywalker
-//        }
-//
-//        let query = """
-//        {
-//          "data": {
-//            "post_register": {
-//              "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjY0MDkyMjExMjAwLCJzdWIiOiJFNDE4MkRFQy1GQTU5LTQ0MUItOEVCMi1EMUMwRDZCOThEODMifQ.J6PulwLNdr3lWgoGfPpJof7A4BAX75X6hvb9BnpUP7E"
-//            }
-//          }
-//        }
-//        """
-//
-//        let url = URL(string: "http://52.197.88.129:4000/graphql")!
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//
-//        let body: [String: Any] = [
-//            "query": query,
-//            "variables": [
-//                "username": username,
-//                "email": email,
-//                "password": password
-//            ]
-//        ]
-//        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
-//
-//
-//        isLoading = true
-//        errorMessage = nil
-//
-//
-//        URLSession.shared.dataTask(with: request) { data, response, error in
-//            DispatchQueue.main.async {
-//                isLoading = false
-//
-//                if let error = error {
-//                    errorMessage = "エラーが発生しました: \(error.localizedDescription)"
-//                    return
-//                }
-//
-//                guard let data = data else {
-//                    errorMessage = "無効な応答"
-//                    return
-//                }
-//
-//                do {
-//                    if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-//                       let errors = json["errors"] as? [[String: Any]] {
-//                        errorMessage = errors.first?["message"] as? String ?? "エラーが発生しました"
-//                    } else {
-//                        errorMessage = nil
-//                    }
-//                } catch {
-//                    errorMessage = "データ処理エラー: \(error.localizedDescription)"
-//                }
-//            }
-//        }.resume()
+        guard !username.isEmpty, !email.isEmpty, !password.isEmpty else {
+            errorMessage = "全てのフィールドを入力してください"
+            return
+        }
+        
+        guard password == confirmPassword else {
+            errorMessage = "パスワードが一致しません"
+            return
+        }
+        let mutation = Post_registerMutation(username: username, email: email, password: password)
+        Network.shared.apollo.perform(mutation: mutation) { result in
+            switch result {
+            case .success(let graphQLResult):
+                if let name = graphQLResult.data?.post_register?.token {
+                    print(name) // Luke Skywalker
+                } else if let errors = graphQLResult.errors {
+                    // GraphQL errors
+                    print(errors)
+                }
+            case .failure(let error):
+                // Network or response format errors
+                print(error)
+            }
+        }
     }
 }
