@@ -39,7 +39,7 @@ struct GameView: View {
                     print("ふるふる")
                     let diff = Date().timeIntervalSince1970 - setuna_t
                     motionModel.stopAccelerometer()
-                    postResult(roomId: "exampleRoomId", diff: diff) {
+                    postResult(roomId: roomId, diff: diff) {
                         isResultPosted = true
                     }
                     isMatching = false
