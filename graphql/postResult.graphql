@@ -1,4 +1,4 @@
-mutation($roomId: String!, $score: Int!){
+mutation Post_result($roomId: String!, $score: Int!){
   post_result(room_id: $roomId, score: $score) {
     result
   }

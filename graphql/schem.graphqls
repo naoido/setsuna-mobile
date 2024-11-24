@@ -84,20 +84,16 @@ input ShakePower_input {
 type Query {
   foo: String!
   check: CheckResponse!
-  get_ready(user_id: String!, room_id: String!): Ready!
-  get_result(user_id: String!, room_id: String!, score: Int!): Result!
   get_userID: UserID!
+  get_rooms: [String]
 }
 
 type Mutation {
   post_login(email: String!, password: String!): Response
   post_register(email: String!, name: String!, password: String!): Response
-  post_ready: ReadyResponse
-  post_room: RoomID
-  post_join(room_id: String!): ReadyResponse
-  post_shake(room_id: String!, power: Int!): ShakeResponse
   scheduleOperation(name: String!): String!
   post_matching(is_leave: Boolean!): MatchStatus
+  post_result(room_id: String!, score: Int!): Result
 }
 
 type Subscription {

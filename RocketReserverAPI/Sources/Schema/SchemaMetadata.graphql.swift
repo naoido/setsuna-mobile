@@ -24,6 +24,7 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     case "Mutation": return RocketReserverAPI.Objects.Mutation
     case "Query": return RocketReserverAPI.Objects.Query
     case "Response": return RocketReserverAPI.Objects.Response
+    case "Result": return RocketReserverAPI.Objects.Result
     case "UserID": return RocketReserverAPI.Objects.UserID
     default: return nil
     }

@@ -60,9 +60,9 @@ struct ShakeView: View {
     private func startMatchingTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             switch motionModel.motionMessage {
-            case "ふるふる", "ふりふり":
+            case "ふるふる":
                 self.matching(isLeave: false)
-            case "ふらふら","静止":
+            case "静止中":
                 self.matching(isLeave: true)
                 self.stopMatchingTimer()
                 self.isMatched = false

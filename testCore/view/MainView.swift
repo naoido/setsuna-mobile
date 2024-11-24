@@ -16,6 +16,11 @@ struct MainView: View {
                     Label("Chat", systemImage: "circle")
                 }
                 .tag(2)
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "circle")
+                }
+                .tag(3)
         }
         .tabViewStyle(.page)
     }
