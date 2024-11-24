@@ -8,7 +8,7 @@ struct ShakeView: View {
     @State private var timer: Timer?
     @State var start_time: Double? = nil
     @State var setuna_time: Double? = nil
-    @StateObject private var motionModel = MotionModel()
+    @StateObject private var motionModel = MotionModel.INSTANCE
     
     var body: some View {
         VStack {
@@ -58,9 +58,10 @@ struct ShakeView: View {
     }
     
     private func startMatchingTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { t in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { t in
             if isMatched == true {
                 t.invalidate()
+                motionModel.stopAccelerometer()
                 return
             }
             switch motionModel.motionMessage {

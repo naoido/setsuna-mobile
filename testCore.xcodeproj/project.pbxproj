@@ -26,6 +26,7 @@
 		E1C33C122CF2AB67003374A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E1C33C112CF2AB67003374A8 /* RocketReserverAPI */; };
 		E1C33C152CF2B04A003374A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E1C33C142CF2B04A003374A8 /* RocketReserverAPI */; };
 		E1C33C172CF2B815003374A8 /* ready.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E1C33C162CF2B800003374A8 /* ready.graphql */; };
+		E1C33C182CF2D1E3003374A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = FF5C92EA2CF2C87E00327A63 /* RocketReserverAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1C33C182CF2D1E3003374A8 /* RocketReserverAPI in Frameworks */,
 				E17880F92CF2284B003766A8 /* RocketReserverAPI in Frameworks */,
 				E17881282CF25B31003766A8 /* RocketReserverAPI in Frameworks */,
 				E1C33C152CF2B04A003374A8 /* RocketReserverAPI in Frameworks */,
@@ -91,7 +93,6 @@
 				E1C33C122CF2AB67003374A8 /* RocketReserverAPI in Frameworks */,
 				E17881252CF25AD9003766A8 /* RocketReserverAPI in Frameworks */,
 				E17880F42CF227A5003766A8 /* RocketReserverAPI in Frameworks */,
-				FF5C92EB2CF2C87E00327A63 /* RocketReserverAPI in Frameworks */,
 				E17880D62CF2129B003766A8 /* KeychainSwift in Frameworks */,
 				E17880E32CF22125003766A8 /* Apollo in Frameworks */,
 			);
@@ -480,7 +481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"testCore/Preview Content\"";
-				DEVELOPMENT_TEAM = 3XN33K527U;
+				DEVELOPMENT_TEAM = 4W8W2D3AP6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -493,7 +494,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = setsuna.com.naoido;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.annko.testCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -509,7 +510,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"testCore/Preview Content\"";
-				DEVELOPMENT_TEAM = 3XN33K527U;
+				DEVELOPMENT_TEAM = 4W8W2D3AP6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -522,7 +523,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = setsuna.com.naoido;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.annko.testCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

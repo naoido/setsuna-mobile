@@ -2,6 +2,7 @@ import SwiftUI
 import CoreMotion
 
 class MotionModel: ObservableObject {
+    public static let INSTANCE = MotionModel()
     private let motionManager = CMMotionManager()
     @Published var motionMessage: String = "加速度センサーのデータ待ち..."
     
@@ -17,8 +18,6 @@ class MotionModel: ObservableObject {
             let x = data.acceleration.x
             let y = data.acceleration.y
             let z = data.acceleration.z
-            
-            print("x: \(x), y: \(y), z: \(z)")
             
             if (abs(x) + abs(y) + abs(z)) > 3 {
                 self.motionMessage = "ふるふる"

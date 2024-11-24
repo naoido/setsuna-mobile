@@ -1,6 +1,10 @@
 import SwiftUI
 import Apollo
 import RocketReserverAPI
+
+var isStarted: Bool = false
+var setuna_t: Double = 0.0
+
 struct GameView: View {
     @State private var isMatching: Bool = true
     @State private var isBattled: Bool = false
@@ -9,40 +13,36 @@ struct GameView: View {
     @State private var score: Int = 0
     @State private var isResultPosted: Bool = false
     @State private var message: String = "始まります..."
-    @StateObject private var motionModel = MotionModel()
-    private let setuna: Double
+    @StateObject private var motionModel = MotionModel.INSTANCE
+    @StateObject private var gameTimerModel = GameTimerModel.INSTANCE
     
     init (start_time: Double, setuna_time: Double) {
-        let now = Date().timeIntervalSince1970
-        let start = start_time - now
-        setuna = setuna_time - now
-        self.startTimer(s: start, f: setuna)
-    }
-    
-    func startTimer(s: Double, f: Double) {
-        Timer.scheduledTimer(withTimeInterval: s, repeats: false) { _ in
-            print("開始")
-            self.message = "...(凪)"
-        }
-        Timer.scheduledTimer(withTimeInterval: f, repeats: false) { _ in
-            print("開始")
-            self.message = "今！！！！"
+        if (!isStarted) {
+            let now = Date().timeIntervalSince1970
+            let start = start_time - now + 3
+            let setuna = setuna_time - now
+            setuna_t = setuna_time
+            self.gameTimerModel.startTimer(s: start, f: setuna)
+            
+            isStarted = true
         }
     }
     
     var body: some View {
         VStack {
-            Text(message)
-                .onChange(of: motionModel.motionMessage) {
-                    if motionModel.motionMessage == "ふるふる" {
-                        let diff = Date().timeIntervalSince1970 - setuna
-                        motionModel.stopAccelerometer()
-                        postResult(roomId: "exampleRoomId", diff: diff) {
-                            isResultPosted = true
-                        }
-                        isMatching = false
+            Text(gameTimerModel.message)
+            .onChange(of: motionModel.motionMessage) {
+                print(motionModel.motionMessage)
+                if motionModel.motionMessage == "ふるふる" {
+                    print("ふるふる")
+                    let diff = Date().timeIntervalSince1970 - setuna_t
+                    motionModel.stopAccelerometer()
+                    postResult(roomId: "exampleRoomId", diff: diff) {
+                        isResultPosted = true
                     }
+                    isMatching = false
                 }
+            }
             
             if isResultPosted {
                 Text("結果送信完了！スコア: \(score)")
@@ -58,6 +58,7 @@ struct GameView: View {
     
     func postResult(roomId: String, diff: Double, completion: @escaping () -> Void) {
         let score = Int(floor(diff * 100))
+        print("score \(score)")
         let mutation = Post_resultMutation(roomId: roomId, score: score)
         Network.shared.apollo.perform(mutation: mutation) { result in
             switch result {
