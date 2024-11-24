@@ -23,6 +23,7 @@ struct GameView: View {
             let start = start_time - now + 3
             let setuna = setuna_time - now
             setuna_t = setuna_time
+            roomId = room_id
             self.gameTimerModel.startTimer(s: start, f: setuna)
             
             isStarted = true
