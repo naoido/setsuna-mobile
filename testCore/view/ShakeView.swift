@@ -6,6 +6,8 @@ struct ShakeView: View {
     @State var roomID: String? = nil
     @State var isMatched: Bool? = false
     @State private var timer: Timer?
+    @State var start_time: Double? = nil
+    @State var setuna_time: Double? = nil
     @StateObject private var motionModel = MotionModel()
     
     var body: some View {
@@ -21,7 +23,7 @@ struct ShakeView: View {
                     Text(isMatched ? "マッチしました！" : "マッチング中...")
                 }
             } else {
-                GameView()
+                GameView(start_time: start_time!, setuna_time: setuna_time!)
             }
         }
         .onAppear {
@@ -43,6 +45,8 @@ struct ShakeView: View {
                         self.userCount = data.user_count
                         self.roomID = data.room_id
                         self.isMatched = data.is_matched
+                        self.start_time = Double(data.start_time!)
+                        self.setuna_time = Double(data.setuna_time!)
                     }
                 }
             case .failure(let error):

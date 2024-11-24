@@ -58,6 +58,12 @@ type MatchStatus {
   user_count: Int
   is_matched: Boolean
   room_id: String
+  start_time: String
+  setuna_time: String
+}
+
+type diffTime {
+  difftime: String
 }
 
 input GetResult_input {
@@ -94,6 +100,7 @@ type Mutation {
   scheduleOperation(name: String!): String!
   post_matching(is_leave: Boolean!): MatchStatus
   post_result(room_id: String!, score: Int!): Result
+  post_ready(room_id: String!): diffTime
 }
 
 type Subscription {

@@ -3,5 +3,7 @@ mutation Post_matching($isLeave: Boolean!) {
     user_count
     room_id
     is_matched
+    start_time
+    setuna_time
   }
 }

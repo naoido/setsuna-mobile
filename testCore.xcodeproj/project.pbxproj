@@ -91,6 +91,7 @@
 				E1C33C122CF2AB67003374A8 /* RocketReserverAPI in Frameworks */,
 				E17881252CF25AD9003766A8 /* RocketReserverAPI in Frameworks */,
 				E17880F42CF227A5003766A8 /* RocketReserverAPI in Frameworks */,
+				FF5C92EB2CF2C87E00327A63 /* RocketReserverAPI in Frameworks */,
 				E17880D62CF2129B003766A8 /* KeychainSwift in Frameworks */,
 				E17880E32CF22125003766A8 /* Apollo in Frameworks */,
 			);
@@ -180,6 +181,7 @@
 				E17881302CF26661003766A8 /* RocketReserverAPI */,
 				E1C33C112CF2AB67003374A8 /* RocketReserverAPI */,
 				E1C33C142CF2B04A003374A8 /* RocketReserverAPI */,
+				FF5C92EA2CF2C87E00327A63 /* RocketReserverAPI */,
 			);
 			productName = testCore;
 			productReference = E13521072CEB638300CB2CEE /* testCore.app */;
@@ -478,7 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"testCore/Preview Content\"";
-				DEVELOPMENT_TEAM = 4W8W2D3AP6;
+				DEVELOPMENT_TEAM = 3XN33K527U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -491,7 +493,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jp.annko.testCore;
+				PRODUCT_BUNDLE_IDENTIFIER = setsuna.com.naoido;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -507,7 +509,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"testCore/Preview Content\"";
-				DEVELOPMENT_TEAM = 4W8W2D3AP6;
+				DEVELOPMENT_TEAM = 3XN33K527U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -520,7 +522,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jp.annko.testCore;
+				PRODUCT_BUNDLE_IDENTIFIER = setsuna.com.naoido;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -709,6 +711,10 @@
 			productName = RocketReserverAPI;
 		};
 		E1C33C142CF2B04A003374A8 /* RocketReserverAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RocketReserverAPI;
+		};
+		FF5C92EA2CF2C87E00327A63 /* RocketReserverAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RocketReserverAPI;
 		};
