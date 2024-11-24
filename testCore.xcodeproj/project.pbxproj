@@ -25,6 +25,7 @@
 		E178813D2CF276B5003766A8 /* postResult.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E178813C2CF276A5003766A8 /* postResult.graphql */; };
 		E1C33C122CF2AB67003374A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E1C33C112CF2AB67003374A8 /* RocketReserverAPI */; };
 		E1C33C152CF2B04A003374A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E1C33C142CF2B04A003374A8 /* RocketReserverAPI */; };
+		E1C33C172CF2B815003374A8 /* ready.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E1C33C162CF2B800003374A8 /* ready.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		E17881222CF25739003766A8 /* schem.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = schem.graphqls; sourceTree = "<group>"; };
 		E178812B2CF264C4003766A8 /* matching.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = matching.graphql; sourceTree = "<group>"; };
 		E178813C2CF276A5003766A8 /* postResult.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = postResult.graphql; sourceTree = "<group>"; };
+		E1C33C162CF2B800003374A8 /* ready.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ready.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -136,6 +138,7 @@
 		E17880EF2CF226EE003766A8 /* graphql */ = {
 			isa = PBXGroup;
 			children = (
+				E1C33C162CF2B800003374A8 /* ready.graphql */,
 				E178813C2CF276A5003766A8 /* postResult.graphql */,
 				E178812B2CF264C4003766A8 /* matching.graphql */,
 				E17880ED2CF226EE003766A8 /* login.graphql */,
@@ -289,6 +292,7 @@
 				E178811A2CF25481003766A8 /* getUser.graphql in Resources */,
 				E178811B2CF25481003766A8 /* register.graphql in Resources */,
 				E17880E72CF221AA003766A8 /* apollo-codegen-config.json in Resources */,
+				E1C33C172CF2B815003374A8 /* ready.graphql in Resources */,
 				E178813D2CF276B5003766A8 /* postResult.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,7 +4,7 @@ import RocketReserverAPI
 struct ShakeView: View {
     @State var userCount: Int? = nil
     @State var roomID: String? = nil
-    @State var isMatched: Bool? = nil
+    @State var isMatched: Bool? = false
     @State private var timer: Timer?
     @StateObject private var motionModel = MotionModel()
     
