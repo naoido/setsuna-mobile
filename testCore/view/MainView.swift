@@ -16,16 +16,7 @@ struct MainView: View {
                     Label("Chat", systemImage: "circle")
                 }
                 .tag(2)
-            GameView()
-                .tabItem {
-                    Label("Game", systemImage: "circle")
-                }
-                .tag(3)
         }
         .tabViewStyle(.page)
-    }
-    private func isLoggedIn() -> Bool {
-        let keychain = KeychainSwift()
-        return keychain.get(LoginView.loginKeychainKey) != nil
     }
 }

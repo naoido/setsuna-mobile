@@ -1,14 +1,9 @@
 import SwiftUI
 import CoreMotion
 
-protocol MotionModelDelegate {
-    func didDetectMotion(type: String)
-}
-
 class MotionModel: ObservableObject {
     private let motionManager = CMMotionManager()
     @Published var motionMessage: String = "加速度センサーのデータ待ち..."
-    var delegate: MotionModelDelegate? 
     
     func startAccelerometer() {
         guard motionManager.isAccelerometerAvailable else {
@@ -25,17 +20,10 @@ class MotionModel: ObservableObject {
             
             print("x: \(x), y: \(y), z: \(z)")
             
-            if abs(x) > 1.0 {
+            if (abs(x) + abs(y) + abs(z)) > 3 {
                 self.motionMessage = "ふるふる"
-                self.delegate?.didDetectMotion(type: "ふるふる")
-            } else if abs(y) > 1.0 {
-                self.motionMessage = "ふりふり"
-                self.delegate?.didDetectMotion(type: "ふりふり")
-            } else if abs(z) > 1.0 {
-                self.motionMessage = "ふらふら"
-                self.delegate?.didDetectMotion(type: "ふらふら")
             } else {
-                self.motionMessage = "静止"
+                self.motionMessage = "静止中"
             }
         }
     }

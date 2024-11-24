@@ -43,6 +43,7 @@ struct GameView: View {
             // Viewが非表示になったらセンサーを停止
             motionModel.stopAccelerometer()
             isMatching = false
+            isReady = false
         }
     }
 }

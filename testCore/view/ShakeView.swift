@@ -1,49 +1,41 @@
 import SwiftUI
 import RocketReserverAPI
 
-struct ShakeView: View, MotionModelDelegate {
-    @State var isMatching: Bool = false
+struct ShakeView: View {
     @State var userCount: Int? = nil
     @State var roomID: String? = nil
     @State var isMatched: Bool? = nil
-    @State private var timer: Timer? 
+    @State private var timer: Timer?
     @StateObject private var motionModel = MotionModel()
     
     var body: some View {
         VStack {
-            if !isMatching {
-                Button("マッチング開始") {
-                    motionModel.delegate = self
-                    motionModel.startAccelerometer()
-                    isMatching = true
-                    startMatchingTimer()
-                }
-            } else {
-                Text("マッチング中")
+            if !(isMatched ?? false) {
                 Text("\(motionModel.motionMessage)")
                 
                 if let userCount = userCount {
                     Text("現在の待機数: \(userCount)")
                 }
                 
-                if let roomID = roomID {
-                    Text("ルームID: \(roomID)")
-                }
-                
                 if let isMatched = isMatched {
                     Text(isMatched ? "マッチしました！" : "マッチング中...")
                 }
-                
-                Button("マッチング終了") {
-                    motionModel.stopAccelerometer()
-                    stopMatchingTimer()
-                    isMatching = false
-                }
+            } else {
+                GameView()
             }
+        }
+        .onAppear {
+            motionModel.startAccelerometer()
+            startMatchingTimer()
         }
         .onDisappear {
             motionModel.stopAccelerometer()
             stopMatchingTimer()
+        }
+        .onChange(of: isMatched) {
+            if isMatched == true {
+                motionModel.stopAccelerometer()
+            }
         }
     }
     
@@ -65,13 +57,18 @@ struct ShakeView: View, MotionModelDelegate {
         }
     }
     
-    func didDetectMotion(type: String) {
-        print("検知された動作: \(type)")
-    }
-    
     private func startMatchingTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            self.matching(isLeave: false)
+            switch motionModel.motionMessage {
+            case "ふるふる", "ふりふり":
+                self.matching(isLeave: false)
+            case "ふらふら","静止":
+                self.matching(isLeave: true)
+                self.stopMatchingTimer()
+                self.isMatched = false
+            default:
+                break
+            }
         }
     }
     

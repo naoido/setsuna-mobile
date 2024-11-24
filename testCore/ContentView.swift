@@ -5,9 +5,9 @@ struct ContentView: View {
     var body: some View {
         Group {
             if isLoggedIn() {
-                LoginView()
-            } else {
                 MainView()
+            } else {
+                LoginView()
             }
         }
     }
