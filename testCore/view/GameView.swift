@@ -43,6 +43,7 @@ struct GameView: View {
                     motionModel.stopAccelerometer()
                     postResult(roomId: roomId, diff: diff) {
                         isResultPosted = true
+                        sleep(5)
                         postRanking(roomId: roomId)
                     }
                     isMatching = false
