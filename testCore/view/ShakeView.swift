@@ -23,7 +23,7 @@ struct ShakeView: View {
                     Text(isMatched ? "マッチしました！" : "マッチング中...")
                 }
             } else {
-                GameView(start_time: start_time!, setuna_time: setuna_time!)
+                GameView(start_time: start_time!, setuna_time: setuna_time!, room_id: roomID!)
             }
         }
         .onAppear {

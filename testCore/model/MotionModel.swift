@@ -19,7 +19,7 @@ class MotionModel: ObservableObject {
             let y = data.acceleration.y
             let z = data.acceleration.z
             
-            if (abs(x) + abs(y) + abs(z)) > 3 {
+            if (abs(x) + abs(y) + abs(z)) > 2.5 {
                 self.motionMessage = "ふるふる"
             } else {
                 self.motionMessage = "静止中"

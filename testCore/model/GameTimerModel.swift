@@ -3,6 +3,7 @@ import SwiftUI
 public class GameTimerModel: ObservableObject {
     static let INSTANCE = GameTimerModel()
     @Published var message: String = "始まりの時..."
+    @Published var score: Int? = nil
     
     func startTimer(s: Double, f: Double) {
         print(s)

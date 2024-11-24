@@ -4,6 +4,7 @@ import RocketReserverAPI
 
 var isStarted: Bool = false
 var setuna_t: Double = 0.0
+var roomId: String = ""
 
 struct GameView: View {
     @State private var isMatching: Bool = true
@@ -16,7 +17,7 @@ struct GameView: View {
     @StateObject private var motionModel = MotionModel.INSTANCE
     @StateObject private var gameTimerModel = GameTimerModel.INSTANCE
     
-    init (start_time: Double, setuna_time: Double) {
+    init (start_time: Double, setuna_time: Double, room_id: String) {
         if (!isStarted) {
             let now = Date().timeIntervalSince1970
             let start = start_time - now + 3
@@ -31,6 +32,7 @@ struct GameView: View {
     var body: some View {
         VStack {
             Text(gameTimerModel.message)
+            Text("\(gameTimerModel.score)")
             .onChange(of: motionModel.motionMessage) {
                 print(motionModel.motionMessage)
                 if motionModel.motionMessage == "ふるふる" {
@@ -58,6 +60,7 @@ struct GameView: View {
     
     func postResult(roomId: String, diff: Double, completion: @escaping () -> Void) {
         let score = Int(floor(diff * 100))
+        gameTimerModel.score = score
         print("score \(score)")
         let mutation = Post_resultMutation(roomId: roomId, score: score)
         Network.shared.apollo.perform(mutation: mutation) { result in
