@@ -45,8 +45,10 @@ struct ShakeView: View {
                         self.userCount = data.user_count
                         self.roomID = data.room_id
                         self.isMatched = data.is_matched
-                        self.start_time = Double(data.start_time!)
-                        self.setuna_time = Double(data.setuna_time!)
+                        if (self.isMatched == true) {
+                            self.start_time = Double(data.start_time!)
+                            self.setuna_time = Double(data.setuna_time!)
+                        }
                     }
                 }
             case .failure(let error):
