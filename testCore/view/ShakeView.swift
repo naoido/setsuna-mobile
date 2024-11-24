@@ -10,7 +10,7 @@ struct ShakeView: View {
     
     var body: some View {
         VStack {
-            if !(isMatched ?? false) {
+            if (isMatched == false) {
                 Text("\(motionModel.motionMessage)")
                 
                 if let userCount = userCount {
@@ -30,7 +30,6 @@ struct ShakeView: View {
         }
         .onDisappear {
             motionModel.stopAccelerometer()
-            stopMatchingTimer()
         }
     }
     
@@ -53,9 +52,10 @@ struct ShakeView: View {
     }
     
     private func startMatchingTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { t in
             if isMatched == true {
-                stopMatchingTimer()
+                t.invalidate()
+                return
             }
             switch motionModel.motionMessage {
             case "ふるふる":
@@ -66,10 +66,5 @@ struct ShakeView: View {
                 break
             }
         }
-    }
-    
-    private func stopMatchingTimer() {
-        timer?.invalidate()
-        timer = nil
     }
 }
