@@ -12,6 +12,7 @@ struct GameView: View {
     @State private var isWin: Bool = false
     @State private var isReady: Bool = false
     @State private var score: Int = 0
+    @State private var ranking: String = ""
     @State private var isResultPosted: Bool = false
     @State private var message: String = "始まります..."
     @StateObject private var motionModel = MotionModel.INSTANCE
@@ -42,6 +43,7 @@ struct GameView: View {
                     motionModel.stopAccelerometer()
                     postResult(roomId: roomId, diff: diff) {
                         isResultPosted = true
+                        postRanking(roomId: roomId)
                     }
                     isMatching = false
                 }
@@ -49,6 +51,7 @@ struct GameView: View {
             
             if isResultPosted {
                 Text("結果送信完了！スコア: \(score)")
+                Text("ランキング！！\(ranking)")
             }
         }
         .onDisappear {
@@ -69,6 +72,19 @@ struct GameView: View {
             case .success(let graphQLResult):
                 if let resultMessage = graphQLResult.data?.post_result?.result {
                     print("Result posted: \(resultMessage)")
+                }
+            case .failure(let error):
+                print("Error posting result: \(error)")
+            }
+        }
+    }
+    func postRanking(roomId: String) {
+        let rankingmutation = RankingMutation(roomId: roomId)
+        Network.shared.apollo.perform(mutation: rankingmutation) { result in
+            switch result {
+                case .success(let graphQLResult):
+                if let ranking = graphQLResult.data?.post_ranking?.result {
+                    print("Ranking: \(ranking)")
                 }
             case .failure(let error):
                 print("Error posting result: \(error)")

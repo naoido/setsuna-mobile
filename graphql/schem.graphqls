@@ -101,6 +101,7 @@ type Mutation {
   post_matching(is_leave: Boolean!): MatchStatus
   post_result(room_id: String!, score: Int!): Result
   post_ready(room_id: String!): diffTime
+  post_ranking(room_id: String!): Result
 }
 
 type Subscription {

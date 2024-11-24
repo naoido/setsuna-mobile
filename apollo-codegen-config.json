@@ -11,7 +11,7 @@
   "schemaDownload": {
       "downloadMethod": {
           "introspection": {
-              "endpointURL": "https://80e8-92-203-95-41.ngrok-free.app/graphql",
+              "endpointURL": "https://041c-92-203-95-41.ngrok-free.app/graphql/",
               "httpMethod": {
                   "POST": {}
               },

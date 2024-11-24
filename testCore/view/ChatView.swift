@@ -91,7 +91,8 @@ struct ChatView: View {
                             .progressViewStyle(CircularProgressViewStyle())
                     }
                 }
-
+                Spacer()
+                    .frame(height: 10)
             }
             .padding()
         }

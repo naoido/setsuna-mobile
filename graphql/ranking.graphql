@@ -1,0 +1,6 @@
+mutation ranking($roomId: String!)
+{
+  post_ranking(room_id: $roomId) {
+    result
+  }
+}
