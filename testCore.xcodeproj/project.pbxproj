@@ -24,6 +24,7 @@
 		E17881312CF26661003766A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E17881302CF26661003766A8 /* RocketReserverAPI */; };
 		E178813D2CF276B5003766A8 /* postResult.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E178813C2CF276A5003766A8 /* postResult.graphql */; };
 		E1C33C122CF2AB67003374A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E1C33C112CF2AB67003374A8 /* RocketReserverAPI */; };
+		E1C33C152CF2B04A003374A8 /* RocketReserverAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E1C33C142CF2B04A003374A8 /* RocketReserverAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 			files = (
 				E17880F92CF2284B003766A8 /* RocketReserverAPI in Frameworks */,
 				E17881282CF25B31003766A8 /* RocketReserverAPI in Frameworks */,
+				E1C33C152CF2B04A003374A8 /* RocketReserverAPI in Frameworks */,
 				E17881012CF22E01003766A8 /* ApolloWebSocket in Frameworks */,
 				E17881312CF26661003766A8 /* RocketReserverAPI in Frameworks */,
 				E17880E52CF22125003766A8 /* ApolloTestSupport in Frameworks */,
@@ -174,6 +176,7 @@
 				E17881272CF25B31003766A8 /* RocketReserverAPI */,
 				E17881302CF26661003766A8 /* RocketReserverAPI */,
 				E1C33C112CF2AB67003374A8 /* RocketReserverAPI */,
+				E1C33C142CF2B04A003374A8 /* RocketReserverAPI */,
 			);
 			productName = testCore;
 			productReference = E13521072CEB638300CB2CEE /* testCore.app */;
@@ -261,7 +264,7 @@
 			packageReferences = (
 				E17880D42CF2129B003766A8 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				E17880E12CF22125003766A8 /* XCRemoteSwiftPackageReference "apollo-ios" */,
-				E1C33C102CF2AB67003374A8 /* XCLocalSwiftPackageReference "RocketReserverAPI" */,
+				E1C33C132CF2B04A003374A8 /* XCLocalSwiftPackageReference "RocketReserverAPI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E13521082CEB638300CB2CEE /* Products */;
@@ -631,7 +634,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		E1C33C102CF2AB67003374A8 /* XCLocalSwiftPackageReference "RocketReserverAPI" */ = {
+		E1C33C132CF2B04A003374A8 /* XCLocalSwiftPackageReference "RocketReserverAPI" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = RocketReserverAPI;
 		};
@@ -698,6 +701,10 @@
 			productName = RocketReserverAPI;
 		};
 		E1C33C112CF2AB67003374A8 /* RocketReserverAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RocketReserverAPI;
+		};
+		E1C33C142CF2B04A003374A8 /* RocketReserverAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RocketReserverAPI;
 		};

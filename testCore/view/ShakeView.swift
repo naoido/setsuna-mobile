@@ -32,11 +32,6 @@ struct ShakeView: View {
             motionModel.stopAccelerometer()
             stopMatchingTimer()
         }
-        .onChange(of: isMatched) {
-            if isMatched == true {
-                motionModel.stopAccelerometer()
-            }
-        }
     }
     
     func matching(isLeave: Bool) {
@@ -59,13 +54,14 @@ struct ShakeView: View {
     
     private func startMatchingTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            if isMatched == true {
+                stopMatchingTimer()
+            }
             switch motionModel.motionMessage {
             case "ふるふる":
                 self.matching(isLeave: false)
             case "静止中":
                 self.matching(isLeave: true)
-                self.stopMatchingTimer()
-                self.isMatched = false
             default:
                 break
             }

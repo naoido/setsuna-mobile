@@ -4,7 +4,7 @@ import Combine
 class TimeModel: ObservableObject {
 
     @Published var currentTime: String = ""
-    @Published var timeDifference: String? = nil
+    @Published var timeDifference: Int = 0
 
     private var timer: AnyCancellable?
     private let formatter: DateFormatter
@@ -27,19 +27,17 @@ class TimeModel: ObservableObject {
 
     func startTiming() {
         startTime = Date()
-        timeDifference = nil
     }
 
     func diffTime() {
         guard let startTime = startTime else {
-            timeDifference = "未スタート"
             return
         }
         
         let now = Date()
         let difference = now.timeIntervalSince(startTime)
         
-        timeDifference = String(format: "%.2f 秒", difference)
+        timeDifference = Int(floor(difference * 100))
         print(timeDifference)
     }
 

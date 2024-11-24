@@ -1,9 +1,12 @@
 import SwiftUI
-
+import Apollo
+import RocketReserverAPI
 struct GameView: View {
     @State private var isMatching: Bool = false
     @State private var isWin: Bool = false
     @State private var isReady: Bool = false
+    @State private var score: Int = 0
+    @State private var isResultPosted: Bool = false
     @StateObject private var motionModel = MotionModel()
     @StateObject private var timeModel = TimeModel()
     
@@ -35,8 +38,17 @@ struct GameView: View {
                     if motionModel.motionMessage == "ふるふる" {
                         timeModel.diffTime()
                         motionModel.stopAccelerometer()
+                        score = timeModel.timeDifference
+                        postResult(roomId: "exampleRoomId", score: score) {
+                            isResultPosted = true
+                        }
+                        isMatching = false
                     }
                 }
+            }
+            
+            if isResultPosted {
+                Text("結果送信完了！スコア: \(score)")
             }
         }
         .onDisappear {
@@ -44,6 +56,19 @@ struct GameView: View {
             motionModel.stopAccelerometer()
             isMatching = false
             isReady = false
+        }
+    }
+    func postResult(roomId: String, score: Int, completion: @escaping () -> Void) {
+        let mutation = Post_resultMutation(roomId: roomId, score: score)
+        Network.shared.apollo.perform(mutation: mutation) { result in
+            switch result {
+            case .success(let graphQLResult):
+                if let resultMessage = graphQLResult.data?.post_result?.result {
+                    print("Result posted: \(resultMessage)")
+                }
+            case .failure(let error):
+                print("Error posting result: \(error)")
+            }
         }
     }
 }
